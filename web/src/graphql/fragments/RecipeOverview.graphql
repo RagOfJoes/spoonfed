@@ -1,0 +1,26 @@
+fragment RecipeOverview on Recipe {
+  id
+  name
+  slug
+  isLiked
+  servings
+  time {
+    total
+  }
+  date {
+    creation
+  }
+  images {
+    name
+    url
+  }
+  createdBy {
+    id
+    avatar
+    username
+
+    name {
+      full
+    }
+  }
+}

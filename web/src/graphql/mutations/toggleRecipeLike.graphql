@@ -1,0 +1,6 @@
+mutation ToggleRecipeLike($recipeID: ID!) {
+  toggleRecipeLike(recipeID: $recipeID) {
+    id
+    isLiked
+  }
+}

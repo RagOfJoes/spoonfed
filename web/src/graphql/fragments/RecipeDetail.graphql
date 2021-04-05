@@ -1,0 +1,36 @@
+fragment RecipeDetail on Recipe {
+  id
+  name
+  slug
+  isLiked
+  servings
+  importUrl
+  numOfLikes
+  ingredients
+  instructions
+  date {
+    creation
+    lastUpdate
+  }
+  images {
+    name
+    url
+  }
+  createdBy {
+    id
+    avatar
+    username
+
+    name {
+      full
+    }
+  }
+  time {
+    prep
+    cook
+    ready
+    total
+    active
+    inactive
+  }
+}

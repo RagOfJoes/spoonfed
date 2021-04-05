@@ -1,0 +1,19 @@
+query GetRecipes(
+  $limit: Int!
+  $cursor: ID
+  $sort: SortInput!
+  $filters: [FilterInput!]
+) {
+  getRecipes(limit: $limit, cursor: $cursor, sort: $sort, filters: $filters) {
+    edges {
+      cursor
+      node {
+        ...RecipeOverview
+      }
+    }
+    pageInfo {
+      cursor
+      hasNextPage
+    }
+  }
+}
