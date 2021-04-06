@@ -16,7 +16,6 @@ const useStyles = makeStyles(
   { name: "RecipeDetailPage" }
 );
 
-// TODO: Add RecipeDetail Component here
 const RecipeDetailContainer: FC = () => {
   const router = useRouter();
   const classes = useStyles();
@@ -35,18 +34,10 @@ const RecipeDetailContainer: FC = () => {
     );
   }
 
-  if (error) {
+  if (error || !data?.getRecipeDetail) {
     return (
       <Grid container className={classes.container}>
         An error has occured.
-      </Grid>
-    );
-  }
-
-  if (!data?.getRecipeDetail) {
-    return (
-      <Grid container className={classes.container}>
-        Invalid Recipe Provided.
       </Grid>
     );
   }
@@ -56,6 +47,7 @@ const RecipeDetailContainer: FC = () => {
     time,
     servings,
     createdBy,
+    importUrl,
     ingredients,
     instructions,
   } = data.getRecipeDetail;
@@ -68,7 +60,7 @@ const RecipeDetailContainer: FC = () => {
         ingredients={ingredients}
         instructions={instructions}
         createdBy={createdBy as User}
-        importUrl="https://google.com"
+        importUrl={importUrl || undefined}
       />
     </Grid>
   );
