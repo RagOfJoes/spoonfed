@@ -6,10 +6,8 @@ const carouselStyles = ({ shape, spacing, palette }: Theme) => {
     embla: {
       marginLeft: "auto",
       marginRight: "auto",
-      padding: spacing(2),
       position: "relative",
       borderRadius: shape.borderRadius,
-      backgroundColor: palette.background.paper,
     },
     viewport: {
       width: "100%",
@@ -36,12 +34,10 @@ const carouselStyles = ({ shape, spacing, palette }: Theme) => {
     },
     slideInner: {
       height: 0,
-      display: "flex",
       overflow: "hidden",
       position: "relative",
       paddingBottom: "75%",
-      alignItems: "center",
-      justifyContent: "center",
+      borderRadius: shape.borderRadius,
     },
     slideParallax: {
       top: 0,
