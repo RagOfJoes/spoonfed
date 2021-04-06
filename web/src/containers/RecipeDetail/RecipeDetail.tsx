@@ -6,10 +6,11 @@ import RecipeDetail from "components/RecipeDetail";
 import { RecipeTime, useGetRecipeDetailQuery, User } from "generated/graphql";
 
 const useStyles = makeStyles(
-  () => ({
+  ({ spacing }) => ({
     container: {
       width: "100%",
       margin: "auto",
+      paddingTop: spacing(2),
     },
   }),
   { name: "RecipeDetailPage" }

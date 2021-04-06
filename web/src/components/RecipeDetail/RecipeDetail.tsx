@@ -55,11 +55,7 @@ const RecipeDetail: FC<RecipeDetailProps> = (props: RecipeDetailProps) => {
       <Grid item xs={12} container spacing={1} className={classes.body}>
         <Grid item sm={8} xs={12} container wrap="nowrap" direction="column">
           <Grid item className={classes.carousel}>
-            {/* <Carousel images={images} /> */}
             <Carousel />
-            {/* <div
-              style={{ width: "100%", height: 400, background: "#fff" }}
-            ></div> */}
           </Grid>
 
           <Hidden xsDown implementation="css">

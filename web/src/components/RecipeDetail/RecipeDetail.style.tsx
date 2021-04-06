@@ -11,7 +11,6 @@ const recipeDetailStyles = ({
   return createStyles({
     container: {
       overflow: "hidden",
-      paddingTop: spacing(2),
       backgroundColor: palette.background.default,
     },
     content: {
@@ -27,12 +26,7 @@ const recipeDetailStyles = ({
     carousel: {
       overflow: "hidden",
     },
-    meta: {
-      // marginLeft: spacing(2),
-      [breakpoints.down("xs")]: {
-        marginLeft: 0,
-      },
-    },
+    meta: {},
     instructions: {
       marginTop: spacing(2),
     },
