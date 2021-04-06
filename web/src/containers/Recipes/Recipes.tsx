@@ -2,6 +2,7 @@ import { memo } from "react";
 import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Cards from "./Cards";
+import Detail from "./Detail";
 import Waypoint from "./Waypoint";
 import Loading from "./Recipes.loading";
 import { useRecipes } from "context/recipes";
@@ -29,13 +30,16 @@ const Recipes = memo(() => {
   }
 
   return (
-    <Grid container direction="row" className={classes.container}>
-      <Grid item container spacing={4}>
-        <Cards />
+    <>
+      <Grid container direction="row" className={classes.container}>
+        <Grid item container spacing={4}>
+          <Cards />
 
-        <Waypoint />
+          <Waypoint />
+        </Grid>
       </Grid>
-    </Grid>
+      <Detail />
+    </>
   );
 });
 
