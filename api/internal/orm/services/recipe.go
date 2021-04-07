@@ -30,6 +30,9 @@ func GetRecipeDetail(ctx context.Context, db *gorm.DB, slug string) (*model.Reci
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	if ok, err := r.IsValid(false); !ok || err != nil {
+		return nil, errInvalidRecipeSlug
+	}
 	recipe, err := model.BuildRecipe(&r)
 	if err != nil {
 		return nil, err
