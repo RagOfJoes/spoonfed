@@ -1,0 +1,19 @@
+type User {
+  id: ID!
+  username: String
+  bio: String
+  avatar: String
+  email: Email!
+  name: UserName
+  date: MetaDate!
+}
+
+type UserName {
+  first: String
+  last: String
+  full: String
+}
+
+extend type Query {
+  me: User
+}

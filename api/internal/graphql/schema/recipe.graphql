@@ -1,0 +1,81 @@
+type Recipe {
+  id: ID!
+  name: String!
+  time: RecipeTime
+  images: [Image!]!
+  servings: String!
+  ingredients: [String!]!
+  instructions: [String!]!
+
+  # Metadata
+  slug: String!
+  numOfLikes: Int
+  date: MetaDate!
+  createdBy: User!
+  isLiked: Boolean
+  importUrl: String
+}
+
+type RecipeTime {
+  prep: String
+  cook: String
+  ready: String
+  active: String
+  inactive: String
+  total: String!
+}
+
+# Cursor Pagination types
+type RecipeEdge {
+  cursor: ID!
+  node: Recipe
+}
+type RecipeConnection {
+  edges: [RecipeEdge!]
+  pageInfo: PageInfo!
+}
+
+extend type Query {
+  getRecipeDetail(slug: String!): Recipe
+  getRecipes(
+    limit: Int!
+    cursor: ID
+    sort: SortInput!
+    filters: [FilterInput!]
+  ): RecipeConnection!
+}
+
+input RecipeTimeInput {
+  prep: String
+  cook: String
+  ready: String
+  total: String!
+  active: String
+  inactive: String
+}
+
+input NewRecipeInput {
+  name: String!
+  servings: String!
+  importUrl: String
+  time: RecipeTimeInput
+  images: [ImageInput!]!
+  ingredients: [String!]!
+  instructions: [String!]!
+}
+
+input EditRecipeInput {
+  ID: ID!
+  name: String
+	servings: String
+	images: [ImageInput!]
+	time: RecipeTimeInput
+	ingredients: [String!]
+	instructions: [String!]
+}
+
+extend type Mutation {
+  toggleRecipeLike(recipeID: ID!): Recipe!
+  editRecipe(recipe: EditRecipeInput!): Recipe!
+  createRecipe(recipe: NewRecipeInput!): Recipe!
+}
