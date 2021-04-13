@@ -17,8 +17,12 @@ func Run(cfg *util.ServerConfig) error {
 		logger.Error("[Auth] Failed to initialize OIDC client.")
 		return err
 	}
+	s3, err := InitializeS3(cfg)
+	if err != nil {
+		return err
+	}
 	router := gin.Default()
-	if err := AttachRoutes(cfg, router, orm); err != nil {
+	if err := AttachRoutes(cfg, router, orm, s3); err != nil {
 		logger.Error("[Server] Failed to attach routes.")
 		return err
 	}
