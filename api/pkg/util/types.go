@@ -24,6 +24,7 @@ type ServerConfig struct {
 	Port    string
 	Scheme  string
 	ORM     ORMConfig
+	S3      S3Config
 	GraphQL GraphQLConfig
 	Auth    OpenIDClientConfig
 }
@@ -52,6 +53,12 @@ type OpenIDClientConfig struct {
 
 func (c *ContextKey) String() string {
 	return reflect.ValueOf(c).String()
+// S3Config defines the config required to perform actions on our S3 Server
+// for image uploads
+type S3Config struct {
+	Bucket      string
+	Region      string
+	PresignPath string
 }
 
 func getValidHost(host string) string {

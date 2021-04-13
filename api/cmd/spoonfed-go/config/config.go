@@ -29,6 +29,11 @@ func LoadConfig() *util.ServerConfig {
 			DSN:         util.GetAssert("ORM_DSN"),
 			AutoMigrate: util.GetAssertBool("ORM_AUTOMIGRATE"),
 		},
+		S3: util.S3Config{
+			Bucket:      util.GetAssert("AWS_S3_BUCKET"),
+			Region:      util.GetAssert("AWS_S3_REGION"),
+			PresignPath: util.GetAssert("AWS_S3_PRESIGN_PATH"),
+		},
 		Auth: util.OpenIDClientConfig{
 			Issuer:       util.GetAssert("ROJ_ISSUER"),
 			ClientID:     util.GetAssert("ROJ_CLIENT_ID"),
