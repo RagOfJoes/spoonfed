@@ -1,4 +1,4 @@
-package config
+package configs
 
 import (
 	"strings"
@@ -8,8 +8,8 @@ import (
 	"github.com/joho/godotenv"
 )
 
-// LoadConfig does just that
-func LoadConfig() *util.ServerConfig {
+// LoadServerConfig does just that
+func LoadServerConfig() *util.ServerConfig {
 	err := godotenv.Load()
 	if err != nil && util.GetAssert("APP_ENV") != "PRODUCTION" {
 		logger.Panic("[ENV] Failed to load")
