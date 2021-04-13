@@ -2,7 +2,6 @@ package util
 
 import (
 	"fmt"
-	"reflect"
 )
 
 // ContextKey defines a context key that will be accessed globally throughout the
@@ -51,8 +50,6 @@ type OpenIDClientConfig struct {
 	Scopes       []string
 }
 
-func (c *ContextKey) String() string {
-	return reflect.ValueOf(c).String()
 // S3Config defines the config required to perform actions on our S3 Server
 // for image uploads
 type S3Config struct {
